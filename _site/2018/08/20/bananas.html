@@ -4,6 +4,10 @@
     <meta charset="utf-8" />
     <title>Bananas</title>
     <link rel="stylesheet" href="/assets/css/styles.css" />
+
+    <!-- identity widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <!-- identity widget -->
   </head>
   <body>
     <nav>
@@ -36,5 +40,19 @@ starch covered with a rind, which may be green, yellow, red, purple, or brown
 when ripe.</p>
 
 
+
+    <!-- redirect to admin -->
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+    <!-- redirect to admin -->
   </body>
 </html>

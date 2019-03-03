@@ -4,6 +4,10 @@
     <meta charset="utf-8" />
     <title>Home</title>
     <link rel="stylesheet" href="/assets/css/styles.css" />
+
+    <!-- identity widget -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <!-- identity widget -->
   </head>
   <body>
     <nav>
@@ -19,5 +23,19 @@
 </nav>
     <h1>hello world!</h1>
 
+
+    <!-- redirect to admin -->
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+    <!-- redirect to admin -->
   </body>
 </html>
